@@ -1,0 +1,21 @@
+<div class="card" *ngIf="!todo.isTodo && !isTodo">
+  <div class="title">
+    <p>{{ todo.title }}</p>
+    <p>{{ todo.date | date: 'medium' }}</p>
+  </div>
+  <div class="btn-block">
+    <a class="btn" (click)="editTodo(todo.id)">Редагувати</a>
+    <a class="btn" (click)="deleteTodo(todo.id)">Видалити</a>
+  </div>
+</div>
+
+<div class="card" *ngIf="todo.isTodo && isTodo">
+  <div class="title">
+    <p>{{ todo.title }}</p>
+    <p>{{ todo.date | date: 'medium' }}</p>
+  </div>
+  <div class="btn-block">
+    <a class="btn" (click)="editTodo(todo.id)">Редагувати</a>
+    <a class="btn" (click)="deleteTodo(todo.id)">Видалити</a>
+  </div>
+</div>

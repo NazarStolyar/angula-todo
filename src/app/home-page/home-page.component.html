@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="wrap">
+    <h1>Todo List</h1>
+    <div class="todo-list" *ngIf="todos.length; else loading">
+      <h2 *ngIf="todos.length">Не завершені задачі</h2>
+      <app-todo (onAdd)="deletePost($event)" *ngFor="let todo of todos" [isTodo]="false" [todo]="todo"></app-todo>
+
+      <h2 *ngIf="isTodo">Завершені задачі</h2>
+
+      <app-todo (onAdd)="deletePost($event)" *ngFor="let todo of todos" [isTodo]="true" [todo]="todo"></app-todo>
+    </div>
+  </div>
+
+  <ng-template #loading>
+    <h2>Йде загруза задач...</h2>
+  </ng-template>

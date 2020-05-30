@@ -1,0 +1,24 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <h1>Створення нової задачі</h1>
+  <div [ngClass]="{'invalid': form.get('title').touched && form.get('title').invalid}" class="form-control">
+    <label for="title">Назва справи:</label>
+    <textarea  id="title " type="text" formControlName="title"></textarea>
+    <div *ngIf="form.get('title').touched && form.get('title').invalid" class="validation">
+      <small *ngIf="form.get('title').errors.required">Поле обовязкове до заповнення</small>
+      <small *ngIf="form.get('title').errors.minlength">Це поле повинно містити не менше 5 символів</small>
+    </div>
+  </div>
+  <div [ngClass]="{'invalid': form.get('author').touched && form.get('author').invalid}" class="form-control">
+    <label for="author">Автор:</label>
+    <input  id="author " type="text" formControlName="author">
+    <div *ngIf="form.get('author').touched && form.get('author').invalid" class="validation">
+      <small *ngIf="form.get('author').errors.required">Поле обовязкове до заповнення</small>
+
+    </div>
+  </div>
+  <button
+    type="submit"
+    class="btn btn-block btn-dark"
+    [disabled]="form.invalid"
+  >Створити задачу</button>
+</form>
